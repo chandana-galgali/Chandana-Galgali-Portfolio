@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandana Galgali | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+        .techno-gradient {
+            background: linear-gradient(90deg, #4f46e5, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .glass-effect {
+            background: rgba(17, 24, 39, 0.8); /* Increased opacity for better readability */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+         /* Custom scrollbar for a more modern look */
+        ::-webkit-scrollbar {
+/* ... existing code ... -->
+            border-top: 4px solid #4f46e5;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Marquee Styles */
+        .marquee-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+            mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+        }
+        .marquee-track {
+            white-space: nowrap;
+            will-change: transform;
+        }
+        .marquee-track > * {
+            flex-shrink: 0;
+            margin: 0 2rem; /* Spacing between icons */
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 80s linear infinite;
+        }
+        .animate-marquee-reverse {
+            animation: marquee 80s linear infinite reverse;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect transition-transform">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center transition-all duration-300">
+            <a href="#" class="text-2xl font-bold techno-gradient">CG</a>
+            <nav class="flex space-x-4 md:space-x-8 text-sm">
+                <a href="#about" class="text-slate-300 hover:text-indigo-400 transition-colors">About</a>
+                <a href="#experience" class="text-slate-300 hover:text-indigo-400 transition-colors">Experience</a>
+                <a href="#projects" class="text-slate-300 hover:text-indigo-400 transition-colors">Projects</a>
+                <a href="#skills" class="text-slate-300 hover:text-indigo-400 transition-colors">Skills</a>
+                <a href="#contact" class="text-slate-300 hover:text-indigo-400 transition-colors">Contact</a>
+            </nav>
+            <a href="mailto:chandana.galgali@gmail.com" class="hidden sm:block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-transform hover:scale-105">
+                Get in Touch
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
+                <div class="text-left order-2 md:order-1">
+                    <p class="text-indigo-400 text-lg font-medium mb-4 animate-fade-in-up" style="animation-delay: 0.2s;">Hi, my name is</p>
+                    <h1 class="text-5xl md:text-6xl font-black text-slate-100 mb-4 animate-fade-in-up" style="animation-delay: 0.4s;">Chandana Galgali.</h1>
+                    <h2 class="text-4xl md:text-4xl font-bold text-slate-400 mb-6 animate-fade-in-up" style="animation-delay: 0.6s;">I build intelligent systems & web experiences.</h2>
+                    <p class="text-slate-400 max-w-2xl mb-8 animate-fade-in-up text-justify" style="animation-delay: 0.8s;">
+                        I'm a passionate developer with a strong foundation in AI and full-stack development. My experience ranges from crafting secure enterprise applications at Barclays to developing innovative AI-powered solutions. I thrive on solving complex problems and building technology that makes a tangible impact.
+                    </p>
+                    <div class="flex space-x-4 animate-fade-in-up" style="animation-delay: 1s;">
+                        <a href="https://github.com/chandana-galgali" target="_blank" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-transform hover:scale-105">View my GitHub</a>
+                        <a href="#projects" class="border-2 border-indigo-500 hover:bg-indigo-500 text-white font-semibold py-3 px-6 rounded-lg transition-all hover:scale-105">Explore my Work</a>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center order-1 md:order-2 animate-fade-in-up" style="animation-delay: 0.5s;">
+                     <div class="w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden relative group transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/50">
+                        <img src="https://placehold.co/400x400/0a0a0a/e2e8f0?text=CG" alt="Chandana Galgali" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-indigo-900 opacity-50 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 section-hidden">
+            <h2 class="text-3xl font-bold text-center mb-12"><span class="techno-gradient">01.</span> About Me</h2>
+            <div class="max-w-3xl mx-auto text-slate-300 space-y-4 text-justify">
+                <p>
+                    Hello! I'm Chandana, a final-year Information Technology student at K. J. Somaiya College of Engineering with Honors in Artificial Intelligence. My journey in tech is driven by a fascination with how we can leverage code to create smarter, more efficient, and impactful solutions for real-world problems.
+                </p>
+                <p>
+                    My experience at <b class="text-indigo-300">Barclays</b> taught me the importance of robust, scalable, and secure software in a high-stakes financial environment. I developed tools that streamlined processes, automated critical checks, and even built a predictive PoC for system failures.
+                </p>
+                <p>
+                    Beyond my internships, I am deeply involved in the tech community. As the General Secretary of my college's technical team, <b class="text-pink-400">Team Emfinity</b>, I've had the privilege of leading a team of 30+ members to organize large-scale hackathons and workshops. I'm also a proud winner of the <b class="text-purple-400">Climate Hackathon 2024</b>, where my team and I developed an AI solution for hyperlocal air quality mapping.
+                </p>
+                <p>
+                    I am a firm believer in continuous learning and am always exploring new technologies to broaden my skill set.
+                </p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 section-hidden">
+            <h2 class="text-3xl font-bold text-center mb-16"><span class="techno-gradient">02.</span> Where I've Worked</h2>
+            <div class="max-w-3xl mx-auto relative">
+                <!-- Vertical line -->
+                <div class="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-gray-700"></div>
+                
+                <!-- Experience Items -->
+                <div class="space-y-16">
+                    <!-- Barclays -->
+                    <div class="relative group">
+                        <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-indigo-500 rounded-full mt-1.5 border-4 border-gray-900 group-hover:scale-125 transition-transform"></div>
+                        <div class="md:flex items-start md:space-x-8">
+                            <div class="md:w-1/2 md:text-right md:pr-8 mb-4 md:mb-0">
+                                <h3 class="text-xl font-bold text-slate-100">Summer Technology Intern</h3>
+                                <p class="text-indigo-400 font-semibold">Barclays Global Service Centre</p>
+                                <p class="text-slate-500 text-sm">June 2025 - July 2025</p>
+                            </div>
+                            <div class="md:w-1/2 glass-effect p-6 rounded-lg">
+                                <ul class="list-disc list-inside text-slate-300 space-y-2">
+                                    <li>Built a real-time SLA monitoring tool, slashing validation time from 45 mins to under 2 mins.</li>
+                                    <li>Developed a predictive PoC using K-Means clustering to flag high-risk system failures.</li>
+                                    <li>Automated housekeeping with Ansible to resolve recurring pod failures and manage NAS storage.</li>
+                                    <li>Served as Scrum Master, presenting solutions to CIOs, MDs, and Directors.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Keva Cyber Security -->
+                     <div class="relative group">
+                        <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-pink-500 rounded-full mt-1.5 border-4 border-gray-900 group-hover:scale-125 transition-transform"></div>
+                        <div class="md:flex flex-row-reverse items-start md:space-x-8 md:space-x-reverse">
+                            <div class="md:w-1/2 md:text-left md:pl-8 mb-4 md:mb-0">
+                                <h3 class="text-xl font-bold text-slate-100">Cyber Security Intern</h3>
+                                <p class="text-pink-400 font-semibold">Keva - Fragrances, Flavours & Aroma</p>
+                                <p class="text-slate-500 text-sm">Jan 2025 - Mar 2025</p>
+                            </div>
+                            <div class="md:w-1/2 glass-effect p-6 rounded-lg">
+                                <ul class="list-disc list-inside text-slate-300 space-y-2">
+                                    <li>Conducted security testing on applications using SonarQube.</li>
+                                    <li>Performed manual security tests and attack simulations (e.g., SQL injection).</li>
+                                    <li>Utilized Burp Suite and FortiSIEM for vulnerability mitigation and threat detection.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Prodigy InfoTech -->
+                     <div class="relative group">
+                        <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full mt-1.5 border-4 border-gray-900 group-hover:scale-125 transition-transform"></div>
+                        <div class="md:flex items-start md:space-x-8">
+                            <div class="md:w-1/2 md:text-right md:pr-8 mb-4 md:mb-0">
+                                <h3 class="text-xl font-bold text-slate-100">Machine Learning Intern</h3>
+                                <p class="text-purple-400 font-semibold">Prodigy InfoTech</p>
+                                <p class="text-slate-500 text-sm">Jan 2025</p>
+                            </div>
+                            <div class="md:w-1/2 glass-effect p-6 rounded-lg">
+                                <ul class="list-disc list-inside text-slate-300 space-y-2">
+                                    <li>Engineered end-to-end ML solutions including Linear Regression, K-Means, SVM, and Deep Learning models.</li>
+                                    <li>Achieved high accuracy on models for price prediction, customer segmentation, and image classification.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 section-hidden">
+            <h2 class="text-3xl font-bold text-center mb-12"><span class="techno-gradient">03.</span> Things I've Built</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-effect rounded-lg overflow-hidden group project-card transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 flex flex-col">
+                    <img src="https://placehold.co/600x400/111827/a78bfa?text=Vision+Language+Model" alt="Project 1" class="w-full h-48 object-cover project-image transition-transform duration-300">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-100 mb-2">Automated Image Captioning</h3>
+                        <p class="text-slate-400 mb-4 flex-grow">A system that generates descriptive captions for objects in images using YOLOv5 for detection and BLIP for captioning.</p>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                           <span class="bg-gray-700 text-slate-300 py-1 px-3 rounded-full">Python</span>
+                           <span class="bg-gray-700 text-slate-300 py-1 px-3 rounded-full">PyTorch</span>
+                           <span class="bg-gray-700 text-slate-300 py-1 px-3 rounded-full">React.js</span>
+                        </div>
+                         <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-transform hover:scale-105 ai-explain-btn mt-auto"
+                            data-project-title="Automated Image Captioning"
+                            data-project-desc="A system that generates descriptive captions for objects in images using YOLOv5 for detection and BLIP for captioning.">
+                            ✨ Explain with AI
+                        </button>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="glass-effect rounded-lg overflow-hidden group project-card transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 flex flex-col">
+                    <img src="https://placehold.co/600x400/111827/f472b6?text=Text+to+AR/VR" alt="Project 2" class="w-full h-48 object-cover project-image transition-transform duration-300">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-100 mb-2">Text to AR/VR Visualization</h3>
+                        <p class="text-slate-400 mb-4 flex-grow">A novel system transforming textual descriptions of numerical data into immersive AR/VR visualizations with 88.89% accuracy.</p>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                           <span class="bg-gray-700 text-slate-300 py-1 px-3 rounded-full">Python</span>
+                           <span class="bg-gray-700 text-slate-300 py-1 px-3 rounded-full">Django</span>
+                           <span class="bg-gray-700 text-slate-300 py-1 px-3 rounded-full">Unity</span>
+                        </div>
+                        <button class="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-4 rounded-lg transition-transform hover:scale-105 ai-explain-btn mt-auto"
+                            data-project-title="Text to AR/VR Visualization"
+                            data-project-desc="A novel system transforming textual descriptions of numerical data into immersive AR/VR visualizations with 88.89% accuracy.">
+                            ✨ Explain with AI
+                        </button>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="glass-effect rounded-lg overflow-hidden group project-card transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/20 flex flex-col">
+                    <img src="https://placehold.co/600x400/111827/6366f1?text=AI+Pollutant+Mapping" alt="Project 3" class="w-full h-48 object-cover project-image transition-transform duration-300">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-100 mb-2">AI-Powered Pollutant Mapping</h3>
+                        <p class="text-slate-400 mb-4 flex-grow">Award-winning project improving satellite data resolution from 1000m to 10m for hyperlocal air quality monitoring.</p>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                             <span class="bg-gray-700 text-slate-300 py-1 px-3 rounded-full">Python</span>
+                             <span class="bg-gray-700 text-slate-300 py-1 px-3 rounded-full">TensorFlow</span>
+                             <span class="bg-gray-700 text-slate-300 py-1 px-3 rounded-full">React.js</span>
+                        </div>
+                         <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-transform hover:scale-105 ai-explain-btn mt-auto"
+                            data-project-title="AI-Powered Pollutant Mapping"
+                            data-project-desc="Award-winning project improving satellite data resolution from 1000m to 10m for hyperlocal air quality monitoring using Sentinel-5P and Sentinel-2 data with Machine Learning models.">
+                            ✨ Explain with AI
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 section-hidden">
+            <h2 class="text-3xl font-bold text-center mb-12"><span class="techno-gradient">04.</span> My Tech Stack</h2>
+            <div class="space-y-8">
+                <!-- Marquee 1 -->
+                <div class="marquee-container">
+                    <div class="marquee-track animate-marquee flex items-center">
+                        <!-- Icons Group 1 -->
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="vscode" width="45" height="45"/>
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg" alt="anaconda" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="flask" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" alt="fastapi" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="c" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="java" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="springboot" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" alt="angularjs" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" alt="maven" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="html" width="45" height="45"/>
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="css3" width="45" height="45" />
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="bootstrap" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="tailwind" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="php" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original.svg" alt="npm" width="45" height="45" />
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="react" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="next" width="45" height="45" />
+                        <!-- Duplicated for seamless scroll -->
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="vscode" width="45" height="45"/>
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg" alt="anaconda" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="flask" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" alt="fastapi" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="c" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="java" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="springboot" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg" alt="angularjs" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" alt="maven" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="html" width="45" height="45"/>
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="css3" width="45" height="45" />
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" alt="bootstrap" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="tailwind" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="php" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original.svg" alt="npm" width="45" height="45" />
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="react" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="next" width="45" height="45" />
+                    </div>
+                </div>
+                <!-- Marquee 2 -->
+                <div class="marquee-container">
+                    <div class="marquee-track animate-marquee-reverse flex items-center">
+                        <!-- Icons Group 2 -->
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="mongodb" width="45" height="45" />
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="mysql" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="postgresql" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt="mssql" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="docker" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redhat/redhat-original.svg" alt="redhat" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="kubernetes" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg" alt="ansible" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bitbucket/bitbucket-original.svg" alt="bitbucket" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="aws" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="linux" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="bash" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="git" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="github" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" alt="gitlab" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="jira" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rstudio/rstudio-original.svg" alt="rstudio" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" alt="matlab" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" alt="arduino" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" alt="canva" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="figma" width="45" height="45"/>
+                         <!-- Duplicated for seamless scroll -->
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="mongodb" width="45" height="45" />
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="mysql" width="45" height="45" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="postgresql" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt="mssql" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="docker" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redhat/redhat-original.svg" alt="redhat" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="kubernetes" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg" alt="ansible" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bitbucket/bitbucket-original.svg" alt="bitbucket" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="aws" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="linux" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="bash" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="git" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="github" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" alt="gitlab" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="jira" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rstudio/rstudio-original.svg" alt="rstudio" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg" alt="matlab" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg" alt="arduino" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" alt="canva" width="45" height="45"/>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="figma" width="45" height="45"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Assistant Section -->
+        <section id="ai-assistant" class="py-20 text-center section-hidden">
+            <h2 class="text-3xl font-bold mb-4"><span class="techno-gradient">✨</span> AI-Powered Assistant</h2>
+            <p class="max-w-2xl mx-auto text-slate-400 mb-8 text-justify">
+                Have questions about my profile? Talk to my AI assistant, powered by Google's Gemini. It's trained on my resume, projects, and skills to provide you with quick and relevant answers. Try asking about my experience with Python or to summarize one of my projects!
+            </p>
+            <button id="open-chatbot-btn-main" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg transition-transform hover:scale-105 text-lg">
+                Chat with my AI Assistant
+            </button>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 text-center section-hidden">
+            <h2 class="text-3xl font-bold mb-4"><span class="techno-gradient">05.</span> Get In Touch</h2>
+            <p class="max-w-xl mx-auto text-slate-400 mb-8 text-justify">
+                I'm currently seeking new opportunities and my inbox is always open. Whether you have a question or just want to say hi, I'll do my best to get back to you!
+            </p>
+            <a href="mailto:chandana.galgali@gmail.com" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg transition-transform hover:scale-105 text-lg">
+                Say Hello
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div class="flex space-x-6">
+                 <a href="https://github.com/chandana-galgali" target="_blank" class="text-slate-400 hover:text-indigo-400 transition-transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/chandana-galgali/" target="_blank" class="text-slate-400 hover:text-indigo-400 transition-transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+            </div>
+            <p class="text-slate-500 text-sm">Designed & Built by Chandana Galgali</p>
+        </div>
+    </footer>
+
+    <!-- Floating Chat Button -->
+    <button id="chatbot-toggle" class="fixed bottom-6 right-6 bg-indigo-600 hover:bg-indigo-700 text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-3xl transition-transform hover:scale-110 z-[60]">
+        ✨
+    </button>
+
+    <!-- Chatbot Modal -->
+    <div id="chatbot-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-[70] p-4">
+        <div class="glass-effect w-full max-w-lg h-[90vh] max-h-[700px] rounded-lg shadow-2xl flex flex-col p-1 relative">
+            <div class="flex items-center justify-between border-b border-slate-700 p-4">
+                <h3 class="text-lg font-bold techno-gradient">AI Portfolio Assistant</h3>
+                <button id="close-chatbot-btn" class="text-slate-400 hover:text-white">&times;</button>
+            </div>
+            <div id="chatbot-body" class="flex-grow p-4 overflow-y-auto space-y-4">
+                <!-- Chat messages will be appended here -->
+                <div class="flex justify-start">
+                    <div class="bg-gray-700 p-3 rounded-lg max-w-xs">
+                        <p class="text-sm">Hello! I'm Chandana's AI assistant. Feel free to ask me anything about her skills, projects, or experience.</p>
+                    </div>
+                </div>
+            </div>
+             <div id="chatbot-loader" class="hidden p-4 flex justify-center items-center">
+                <div class="loader"></div>
+            </div>
+            <div class="p-4 border-t border-slate-700">
+                <div class="flex space-x-2">
+                    <input type="text" id="chatbot-input" class="flex-grow bg-gray-800 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Ask about my experience with Python...">
+                    <button id="chatbot-send-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-lg transition-transform hover:scale-105">Send</button>
+                </div>
+                <p class="text-xs text-slate-500 mt-2 text-center">AI-generated content. Please verify important information.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- AI Explanation Modal -->
+    <div id="ai-explanation-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-[70] p-4">
+        <div class="glass-effect w-full max-w-2xl rounded-lg shadow-2xl flex flex-col relative p-1">
+             <div class="flex items-center justify-between border-b border-slate-700 p-4">
+                <h3 id="ai-explanation-title" class="text-lg font-bold techno-gradient">AI Project Analysis</h3>
+                <button id="close-explanation-btn" class="text-slate-400 hover:text-white">&times;</button>
+            </div>
+            <div id="ai-explanation-content" class="p-6 overflow-y-auto max-h-[70vh] text-slate-300 space-y-4">
+                <!-- AI Explanation will be injected here -->
+            </div>
+            <div id="explanation-loader" class="hidden p-6 justify-center items-center">
+                <div class="loader"></div>
+            </div>
+             <p class="text-xs text-slate-500 p-4 text-center border-t border-slate-700">AI-generated content. Please verify important information.</p>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Standard UI Logic (Menu, Scroll Effects) ---
+            
+            const header = document.getElementById('header');
+            const headerContainer = header.querySelector('div');
+            let lastScrollTop = 0;
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Hide header on scroll down, show on scroll up
+                if (scrollTop > lastScrollTop && scrollTop > 100) { // 100px buffer
+                    header.classList.add('-translate-y-full');
+                } else {
+                    header.classList.remove('-translate-y-full');
+                }
+                
+                // Shrink padding on scroll
+                if (scrollTop > 50) {
+                    headerContainer.classList.add('py-2');
+                    headerContainer.classList.remove('py-3');
+                } else {
+                    headerContainer.classList.add('py-3');
+                    headerContainer.classList.remove('py-2');
+                }
+
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            });
+
+
+            const sections = document.querySelectorAll('.section-hidden');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('section-visible');
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => observer.observe(section));
+
+            /* const skills = [
+                { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+                { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+                { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+                { name: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+                { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+                { name: 'TensorFlow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
+                { name: 'PyTorch', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
+                { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+                { name: 'Kubernetes', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg' },
+                { name: 'Ansible', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg' },
+                { name: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+                { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+            ];
+
+            const skillsContainer = document.querySelector('#skills .grid');
+            skills.forEach(skill => {
+                skillsContainer.innerHTML += `
+                    <div class="glass-effect p-6 rounded-lg flex flex-col items-center justify-center space-y-3 skill-card transition-all duration-300 hover:-translate-y-2">
+                        <img src="${skill.icon}" alt="${skill.name}" class="h-12 w-12 skill-icon transition-transform duration-300">
+                        <p class="font-semibold text-slate-200">${skill.name}</p>
+                    </div>`;
+            }); */
+
+            // --- Gemini API Integration ---
+
+            const API_KEY = ""; // Keep this empty, it will be handled by the environment.
+            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
+            
+            // --- Core API Call Function ---
+            async function callGeminiAPI(systemPrompt, userQuery, retries = 3, delay = 1000) {
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                for (let i = 0; i < retries; i++) {
+                    try {
+                        const response = await fetch(API_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+
+                        const result = await response.json();
+                        const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                        if (text) {
+                            return text.replace(/\*/g, '•'); // Basic markdown conversion
+                        } else {
+                            throw new Error("Invalid response structure from API.");
+                        }
+                    } catch (error) {
+                        console.error(`Attempt ${i + 1} failed:`, error);
+                        if (i < retries - 1) {
+                            await new Promise(res => setTimeout(res, delay * Math.pow(2, i)));
+                        } else {
+                            return "Sorry, I'm having trouble connecting to the AI service. Please try again later.";
+                        }
+                    }
+                }
+            }
+
+            // --- Chatbot Logic ---
+            const chatbotModal = document.getElementById('chatbot-modal');
+            const chatbotBody = document.getElementById('chatbot-body');
+            const chatbotInput = document.getElementById('chatbot-input');
+            const chatbotSendBtn = document.getElementById('chatbot-send-btn');
+            const chatbotLoader = document.getElementById('chatbot-loader');
+
+            const CHATBOT_SYSTEM_PROMPT = `You are a helpful AI assistant for Chandana Galgali's portfolio website. Your goal is to answer questions from visitors, primarily recruiters, about Chandana's skills, experience, and projects. You must be professional, concise, and base your answers strictly on the following information. Do not invent any details.
+
+**Chandana Galgali's Resume Information:**
+- **Summary:** A passionate and skilled Information Technology undergraduate at K. J. Somaiya College of Engineering, with Honors in Artificial Intelligence. Experienced in AI/ML, full-stack development, and cybersecurity through internships at Barclays and Keva. Proven ability to lead teams and deliver impactful, award-winning projects. A winner of the Climate Hackathon 2024.
+- **Education:** B.Tech in Information Technology, K J Somaiya College of Engineering (2022-2026), CGPA: 9.66/10. Honors in AI.
+- **Experience:**
+  - **Barclays (Summer Tech Intern):** Built a real-time SLA monitoring tool reducing validation time from 45 min to <2 min. Developed a predictive PoC with K-Means clustering. Automated housekeeping with Ansible. Served as Scrum Master.
+  - **Keva (Cyber Security Intern):** Conducted security testing with SonarQube, Burp Suite, and FortiSIEM. Performed manual attack simulations.
+  - **Prodigy InfoTech (ML Intern):** Engineered end-to-end ML models (Linear Regression, K-Means, SVM, Deep Learning) for various applications, achieving high accuracies.
+- **Key Projects:**
+  - **Automated Image Captioning:** Used YOLOv5 and BLIP to generate captions for objects in images.
+  - **Text to AR/VR Visualization:** A novel system to convert text descriptions of data into immersive AR/VR visualizations with 88.89% accuracy.
+  - **AI-Powered Pollutant Mapping:** Award-winning Climate Hackathon project. Used CNNs and satellite imagery to improve air quality map resolution from 1000m to 10m.
+- **Skills:**
+  - **Languages:** Python, Java, JavaScript, R, SQL
+  - **AI/ML:** TensorFlow, PyTorch, Scikit-Learn, K-Means, SVM, CNNs, LLMs, RAG, OpenCV
+  - **Web Dev:** React.js, Node.js, Django, Flask, HTML, CSS
+  - **DevOps:** Docker, Kubernetes, Ansible, Git, GitLab CI/CD
+
+When a recruiter asks a question, use this information to formulate a helpful and accurate response. You can also suggest questions they might want to ask Chandana in an interview.`;
+
+            function toggleChatbot() { chatbotModal.classList.toggle('hidden'); chatbotModal.classList.toggle('flex'); }
+            document.getElementById('chatbot-toggle').addEventListener('click', toggleChatbot);
+            document.getElementById('open-chatbot-btn-main').addEventListener('click', toggleChatbot);
+            document.getElementById('close-chatbot-btn').addEventListener('click', toggleChatbot);
+
+            async function handleSendMessage() {
+                const userQuery = chatbotInput.value.trim();
+                if (!userQuery) return;
+
+                appendMessage(userQuery, 'user');
+                chatbotInput.value = '';
+                chatbotLoader.classList.remove('hidden');
+
+                const aiResponse = await callGeminiAPI(CHATBOT_SYSTEM_PROMPT, userQuery);
+                
+                chatbotLoader.classList.add('hidden');
+                appendMessage(aiResponse, 'ai');
+            }
+
+            chatbotSendBtn.addEventListener('click', handleSendMessage);
+            chatbotInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSendMessage();
+            });
+
+            function appendMessage(text, sender) {
+                const messageWrapper = document.createElement('div');
+                messageWrapper.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
+                
+                const messageBubble = document.createElement('div');
+                messageBubble.className = `p-3 rounded-lg max-w-sm ${sender === 'user' ? 'bg-indigo-600' : 'bg-gray-700'}`;
+                
+                const messageText = document.createElement('p');
+                messageText.className = 'text-sm';
+                messageText.innerText = text;
+
+                messageBubble.appendChild(messageText);
+                messageWrapper.appendChild(messageBubble);
+                chatbotBody.appendChild(messageWrapper);
+                chatbotBody.scrollTop = chatbotBody.scrollHeight;
+            }
+
+            // --- AI Project Explanation Logic ---
+            const explanationModal = document.getElementById('ai-explanation-modal');
+            const explanationTitle = document.getElementById('ai-explanation-title');
+            const explanationContent = document.getElementById('ai-explanation-content');
+            const explanationLoader = document.getElementById('explanation-loader');
+            
+            document.querySelectorAll('.ai-explain-btn').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const title = e.target.dataset.projectTitle;
+                    const desc = e.target.dataset.projectDesc;
+                    
+                    explanationTitle.innerText = `AI Analysis: ${title}`;
+                    explanationContent.innerHTML = '';
+                    explanationLoader.style.display = 'flex';
+                    explanationModal.classList.remove('hidden');
+                    explanationModal.classList.add('flex');
+                    
+                    const prompt = `You are a tech talent evaluator. A candidate has listed the following project on their portfolio. Project Title: '${title}'. Description: '${desc}'. Provide a concise, 3-paragraph analysis for a recruiter. Explain: 1. The technical complexity and skills demonstrated. 2. The potential impact or application of this project. 3. A good follow-up question to ask the candidate about this project during an interview.`;
+
+                    const explanation = await callGeminiAPI("You are a helpful tech project analyst.", prompt);
+                    
+                    explanationLoader.style.display = 'none';
+                    explanationContent.innerHTML = explanation.split('\n').map(p => `<p>${p}</p>`).join('');
+                });
+            });
+
+            document.getElementById('close-explanation-btn').addEventListener('click', () => {
+                explanationModal.classList.add('hidden');
+                explanationModal.classList.remove('flex');
+            });
+        });
+    </script>
+</body>
+</html>
