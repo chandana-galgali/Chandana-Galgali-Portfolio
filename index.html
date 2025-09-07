@@ -15,36 +15,61 @@
             color: #e2e8f0;
         }
         .techno-gradient {
-            background: linear-gradient(90deg, #4f46e5, #ec4899, #8b5cf6);
+            background: linear-gradient(to right, #4f46e5, #d946ef);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-fill-color: transparent;
         }
         .glass-effect {
-            background: rgba(17, 24, 39, 0.8); /* Increased opacity for better readability */
+            background: rgba(17, 24, 39, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
         .section-hidden {
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         .section-visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .skill-card:hover .skill-icon {
-            transform: scale(1.2) rotate(10deg);
-        }
         .project-card:hover .project-image {
             transform: scale(1.05);
         }
-         /* Custom scrollbar for a more modern look */
+         /* Custom scrollbar */
         ::-webkit-scrollbar {
-/* ... existing code ... -->
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
+        }
+
+        /* Loading Spinner */
+        .loader {
+            border: 4px solid #374151;
             border-top: 4px solid #4f46e5;
             border-radius: 50%;
             width: 40px;
@@ -54,33 +79,6 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-
-        /* Marquee Styles */
-        .marquee-container {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
-            mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
-        }
-        .marquee-track {
-            white-space: nowrap;
-            will-change: transform;
-        }
-        .marquee-track > * {
-            flex-shrink: 0;
-            margin: 0 2rem; /* Spacing between icons */
-        }
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            animation: marquee 80s linear infinite;
-        }
-        .animate-marquee-reverse {
-            animation: marquee 80s linear infinite reverse;
         }
     </style>
 </head>
@@ -109,7 +107,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
                 <div class="text-left order-2 md:order-1">
                     <p class="text-indigo-400 text-lg font-medium mb-4 animate-fade-in-up" style="animation-delay: 0.2s;">Hi, my name is</p>
-                    <h1 class="text-5xl md:text-6xl font-black text-slate-100 mb-4 animate-fade-in-up" style="animation-delay: 0.4s;">Chandana Galgali.</h1>
+                    <h1 class="text-5xl md:text-5xl font-black text-slate-100 mb-4 animate-fade-in-up" style="animation-delay: 0.4s;">Chandana Galgali.</h1>
                     <h2 class="text-4xl md:text-4xl font-bold text-slate-400 mb-6 animate-fade-in-up" style="animation-delay: 0.6s;">I build intelligent systems & web experiences.</h2>
                     <p class="text-slate-400 max-w-2xl mb-8 animate-fade-in-up text-justify" style="animation-delay: 0.8s;">
                         I'm a passionate developer with a strong foundation in AI and full-stack development. My experience ranges from crafting secure enterprise applications at Barclays to developing innovative AI-powered solutions. I thrive on solving complex problems and building technology that makes a tangible impact.
@@ -120,10 +118,11 @@
                     </div>
                 </div>
                 <div class="flex justify-center items-center order-1 md:order-2 animate-fade-in-up" style="animation-delay: 0.5s;">
-                     <div class="w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden relative group transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/50">
-                        <img src="https://placehold.co/400x400/0a0a0a/e2e8f0?text=CG" alt="Chandana Galgali" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-indigo-900 opacity-50 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    <div class="flex justify-center items-center order-1 md:order-2 animate-fade-in-up" style="animation-delay: 0.5s;">
+                     <div class="w-64 h-64 md:w-80 md:h-80 rounded-lg bg-gray-800 border-2 border-indigo-500/30 overflow-hidden relative group transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/50">
+                        <img src="https://raw.githubusercontent.com/chandana-galgali/chandana-galgali/refs/heads/main/Chandana%20Galgali.jpg" alt="A professional shot of Chandana Galgali" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                     </div>
+                </div>
                 </div>
             </div>
         </section>
@@ -147,71 +146,65 @@
             </div>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience" class="py-20 section-hidden">
             <h2 class="text-3xl font-bold text-center mb-16"><span class="techno-gradient">02.</span> Where I've Worked</h2>
-            <div class="max-w-3xl mx-auto relative">
-                <!-- Vertical line -->
-                <div class="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-gray-700"></div>
-                
-                <!-- Experience Items -->
-                <div class="space-y-16">
-                    <!-- Barclays -->
-                    <div class="relative group">
-                        <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-indigo-500 rounded-full mt-1.5 border-4 border-gray-900 group-hover:scale-125 transition-transform"></div>
-                        <div class="md:flex items-start md:space-x-8">
-                            <div class="md:w-1/2 md:text-right md:pr-8 mb-4 md:mb-0">
-                                <h3 class="text-xl font-bold text-slate-100">Summer Technology Intern</h3>
-                                <p class="text-indigo-400 font-semibold">Barclays Global Service Centre</p>
-                                <p class="text-slate-500 text-sm">June 2025 - July 2025</p>
-                            </div>
-                            <div class="md:w-1/2 glass-effect p-6 rounded-lg">
-                                <ul class="list-disc list-inside text-slate-300 space-y-2">
-                                    <li>Built a real-time SLA monitoring tool, slashing validation time from 45 mins to under 2 mins.</li>
-                                    <li>Developed a predictive PoC using K-Means clustering to flag high-risk system failures.</li>
-                                    <li>Automated housekeeping with Ansible to resolve recurring pod failures and manage NAS storage.</li>
-                                    <li>Served as Scrum Master, presenting solutions to CIOs, MDs, and Directors.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Keva Cyber Security -->
-                     <div class="relative group">
-                        <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-pink-500 rounded-full mt-1.5 border-4 border-gray-900 group-hover:scale-125 transition-transform"></div>
-                        <div class="md:flex flex-row-reverse items-start md:space-x-8 md:space-x-reverse">
-                            <div class="md:w-1/2 md:text-left md:pl-8 mb-4 md:mb-0">
-                                <h3 class="text-xl font-bold text-slate-100">Cyber Security Intern</h3>
-                                <p class="text-pink-400 font-semibold">Keva - Fragrances, Flavours & Aroma</p>
-                                <p class="text-slate-500 text-sm">Jan 2025 - Mar 2025</p>
-                            </div>
-                            <div class="md:w-1/2 glass-effect p-6 rounded-lg">
-                                <ul class="list-disc list-inside text-slate-300 space-y-2">
-                                    <li>Conducted security testing on applications using SonarQube.</li>
-                                    <li>Performed manual security tests and attack simulations (e.g., SQL injection).</li>
-                                    <li>Utilized Burp Suite and FortiSIEM for vulnerability mitigation and threat detection.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <div class="container mx-auto w-full h-full">
+                <div class="relative wrap overflow-hidden p-2 md:p-10 h-full">
+                    <div class="absolute border-opacity-20 border-gray-700 h-full border-2 hidden md:block" style="left: 50%"></div>
                     
-                    <!-- Prodigy InfoTech -->
-                     <div class="relative group">
-                        <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full mt-1.5 border-4 border-gray-900 group-hover:scale-125 transition-transform"></div>
-                        <div class="md:flex items-start md:space-x-8">
-                            <div class="md:w-1/2 md:text-right md:pr-8 mb-4 md:mb-0">
-                                <h3 class="text-xl font-bold text-slate-100">Machine Learning Intern</h3>
-                                <p class="text-purple-400 font-semibold">Prodigy InfoTech</p>
-                                <p class="text-slate-500 text-sm">Jan 2025</p>
-                            </div>
-                            <div class="md:w-1/2 glass-effect p-6 rounded-lg">
-                                <ul class="list-disc list-inside text-slate-300 space-y-2">
-                                    <li>Engineered end-to-end ML solutions including Linear Regression, K-Means, SVM, and Deep Learning models.</li>
-                                    <li>Achieved high accuracy on models for price prediction, customer segmentation, and image classification.</li>
-                                </ul>
-                            </div>
+                    <!-- Barclays (Right Side on Desktop) -->
+                    <div class="mb-8 flex md:justify-between items-center w-full md:flex-row-reverse">
+                        <div class="order-1 w-0 md:w-5/12"></div>
+                        <div class="z-20 flex-shrink-0 flex items-center order-1 bg-indigo-800 shadow-xl w-12 h-12 rounded-full">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto text-indigo-300" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div class="order-1 glass-effect rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4 ml-4 md:ml-0">
+                            <p class="text-sm text-slate-400 text-right md:text-left">June 2025 - July 2025</p>
+                            <h3 class="font-bold text-slate-100 text-lg text-right md:text-left">Summer Technology Intern</h3>
+                            <p class="font-semibold text-indigo-400 text-base text-right md:text-left">Barclays Global Service Centre</p>
+                            <ul class="list-disc list-inside text-slate-300 space-y-1 mt-2 text-sm text-left">
+                                <li>Slashed validation time from 45 mins to &lt;2 mins with a real-time SLA monitoring tool.</li>
+                                <li>Developed a predictive PoC with K-Means clustering to flag high-risk system failures.</li>
+                                <li>Automated housekeeping with Ansible to resolve recurring pod failures.</li>
+                            </ul>
                         </div>
                     </div>
 
+                    <!-- Keva (Left Side on Desktop) -->
+                    <div class="mb-8 flex justify-between items-center w-full">
+                        <div class="order-1 w-0 md:w-5/12"></div>
+                        <div class="z-20 flex-shrink-0 flex items-center order-1 bg-pink-800 shadow-xl w-12 h-12 rounded-full">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto text-pink-300" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"></path><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path></svg>
+                        </div>
+                        <div class="order-1 glass-effect rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4 ml-4 md:ml-0">
+                            <p class="text-sm text-slate-400">Jan 2025 - Mar 2025</p>
+                            <h3 class="font-bold text-slate-100 text-lg">Cyber Security Intern</h3>
+                            <p class="font-semibold text-pink-400 text-base">Keva - Fragrances, Flavours & Aroma</p>
+                            <ul class="list-disc list-inside text-slate-300 space-y-1 mt-2 text-sm">
+                                <li>Conducted security testing on applications using SonarQube.</li>
+                                <li>Performed manual security tests and attack simulations (e.g., SQL injection).</li>
+                                <li>Used Burp Suite and FortiSIEM for vulnerability mitigation and threat detection.</li>
+                            </ul>
+                        </div>
+                    </div>
+                     
+                     <!-- Prodigy (Right Side on Desktop) -->
+                    <div class="mb-8 flex md:justify-between items-center w-full md:flex-row-reverse">
+                        <div class="order-1 w-0 md:w-5/12"></div>
+                        <div class="z-20 flex-shrink-0 flex items-center order-1 bg-purple-800 shadow-xl w-12 h-12 rounded-full">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto text-purple-300" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                        </div>
+                        <div class="order-1 glass-effect rounded-lg shadow-xl w-full md:w-5/12 p-6 ml-4 md:ml-0">
+                            <p class="text-sm text-slate-400 text-right md:text-left">Jan 2025</p>
+                            <h3 class="font-bold text-slate-100 text-lg text-right md:text-left">Machine Learning Intern</h3>
+                            <p class="font-semibold text-purple-400 text-base text-right md:text-left">Prodigy InfoTech</p>
+                            <ul class="list-disc list-inside text-slate-300 space-y-1 mt-2 text-sm text-left">
+                                <li>Engineered end-to-end ML solutions including Linear Regression, K-Means, and SVM.</li>
+                                <li>Achieved high accuracy on models for price prediction and customer segmentation.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -277,6 +270,7 @@
             </div>
         </section>
         
+        <!-- Skills Section -->
         <section id="skills" class="py-20 section-hidden">
             <h2 class="text-3xl font-bold text-center mb-12"><span class="techno-gradient">04.</span> My Tech Stack</h2>
             <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 max-w-5xl mx-auto">
@@ -324,6 +318,7 @@
             </div>
         </section>
 
+        <!-- AI Assistant Section -->
         <section id="ai-assistant" class="py-20 text-center section-hidden">
             <h2 class="text-3xl font-bold mb-4"><span class="techno-gradient">✨</span> AI-Powered Assistant</h2>
             <p class="max-w-2xl mx-auto text-slate-400 mb-8 text-justify">
@@ -334,6 +329,7 @@
             </button>
         </section>
         
+        <!-- Contact Section -->
         <section id="contact" class="py-20 text-center section-hidden">
             <h2 class="text-3xl font-bold mb-4"><span class="techno-gradient">05.</span> Get In Touch</h2>
             <p class="max-w-xl mx-auto text-slate-400 mb-8 text-justify">
@@ -345,6 +341,7 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="py-8">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div class="flex space-x-6">
@@ -359,10 +356,12 @@
         </div>
     </footer>
 
+    <!-- Floating Chat Button -->
     <button id="chatbot-toggle" class="fixed bottom-6 right-6 bg-indigo-600 hover:bg-indigo-700 text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-3xl transition-transform hover:scale-110 z-[60]">
         ✨
     </button>
 
+    <!-- Chatbot Modal -->
     <div id="chatbot-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-[70] p-4">
         <div class="glass-effect w-full max-w-lg h-[90vh] max-h-[700px] rounded-lg shadow-2xl flex flex-col p-1 relative">
             <div class="flex items-center justify-between border-b border-slate-700 p-4">
@@ -370,6 +369,7 @@
                 <button id="close-chatbot-btn" class="text-slate-400 hover:text-white">&times;</button>
             </div>
             <div id="chatbot-body" class="flex-grow p-4 overflow-y-auto space-y-4">
+                <!-- Chat messages will be appended here -->
                 <div class="flex justify-start">
                     <div class="bg-gray-700 p-3 rounded-lg max-w-xs">
                         <p class="text-sm">Hello! I'm Chandana's AI assistant. Feel free to ask me anything about her skills, projects, or experience.</p>
@@ -389,6 +389,7 @@
         </div>
     </div>
     
+    <!-- AI Explanation Modal -->
     <div id="ai-explanation-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-[70] p-4">
         <div class="glass-effect w-full max-w-2xl rounded-lg shadow-2xl flex flex-col relative p-1">
              <div class="flex items-center justify-between border-b border-slate-700 p-4">
@@ -396,6 +397,7 @@
                 <button id="close-explanation-btn" class="text-slate-400 hover:text-white">&times;</button>
             </div>
             <div id="ai-explanation-content" class="p-6 overflow-y-auto max-h-[70vh] text-slate-300 space-y-4">
+                <!-- AI Explanation will be injected here -->
             </div>
             <div id="explanation-loader" class="hidden p-6 justify-center items-center">
                 <div class="loader"></div>
@@ -407,6 +409,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- Standard UI Logic (Menu, Scroll Effects) ---
             
             const header = document.getElementById('header');
             const headerContainer = header.querySelector('div');
@@ -415,12 +418,14 @@
             window.addEventListener('scroll', () => {
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
+                // Hide header on scroll down, show on scroll up
                 if (scrollTop > lastScrollTop && scrollTop > 100) { // 100px buffer
                     header.classList.add('-translate-y-full');
                 } else {
                     header.classList.remove('-translate-y-full');
                 }
                 
+                // Shrink padding on scroll
                 if (scrollTop > 50) {
                     headerContainer.classList.add('py-2');
                     headerContainer.classList.remove('py-3');
@@ -441,34 +446,12 @@
             }, { threshold: 0.1 });
             sections.forEach(section => observer.observe(section));
 
-            /* const skills = [
-                { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-                { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-                { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-                { name: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-                { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-                { name: 'TensorFlow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
-                { name: 'PyTorch', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
-                { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-                { name: 'Kubernetes', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg' },
-                { name: 'Ansible', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg' },
-                { name: 'SQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-                { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-            ];
+            // --- Gemini API Integration ---
 
-            const skillsContainer = document.querySelector('#skills .grid');
-            skills.forEach(skill => {
-                skillsContainer.innerHTML += `
-                    <div class="glass-effect p-6 rounded-lg flex flex-col items-center justify-center space-y-3 skill-card transition-all duration-300 hover:-translate-y-2">
-                        <img src="${skill.icon}" alt="${skill.name}" class="h-12 w-12 skill-icon transition-transform duration-300">
-                        <p class="font-semibold text-slate-200">${skill.name}</p>
-                    </div>`;
-            }); */
-
-
-            const API_KEY = ""; 
+            const API_KEY = ""; // Keep this empty, it will be handled by the environment.
             const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
             
+            // --- Core API Call Function ---
             async function callGeminiAPI(systemPrompt, userQuery, retries = 3, delay = 1000) {
                 const payload = {
                     contents: [{ parts: [{ text: userQuery }] }],
@@ -490,7 +473,7 @@
                         const result = await response.json();
                         const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
                         if (text) {
-                            return text.replace(/\*/g, '•'); 
+                            return text.replace(/\*/g, '•'); // Basic markdown conversion
                         } else {
                             throw new Error("Invalid response structure from API.");
                         }
@@ -505,6 +488,7 @@
                 }
             }
 
+            // --- Chatbot Logic ---
             const chatbotModal = document.getElementById('chatbot-modal');
             const chatbotBody = document.getElementById('chatbot-body');
             const chatbotInput = document.getElementById('chatbot-input');
@@ -573,6 +557,7 @@ When a recruiter asks a question, use this information to formulate a helpful an
                 chatbotBody.scrollTop = chatbotBody.scrollHeight;
             }
 
+            // --- AI Project Explanation Logic ---
             const explanationModal = document.getElementById('ai-explanation-modal');
             const explanationTitle = document.getElementById('ai-explanation-title');
             const explanationContent = document.getElementById('ai-explanation-content');
@@ -606,3 +591,4 @@ When a recruiter asks a question, use this information to formulate a helpful an
     </script>
 </body>
 </html>
+
